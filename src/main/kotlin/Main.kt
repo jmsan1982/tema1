@@ -1,6 +1,7 @@
 fun main() {
     println("Hello World.")
     println("number of a's = " + countAs("Mary got married"))
+    exercise2()
     assignReadersToBooks()
     printStringLength("This is a test")
     printStringLength(null)
@@ -35,6 +36,22 @@ fun exercise2() {
             // https://kotlinlang.org/docs/reference/control-flow.html
             // take into account that some months have 30, others 31 and one 28 or 29.
             // Invoke the function from main()
+            when(month){
+                0 -> print("")
+                1 -> println("31 days")
+                2 -> println("28 days")
+                3 -> println("31 days")
+                4 -> println("30 days")
+                5 -> println("31 days")
+                6 -> println("31 days")
+                7 -> println("31 days")
+                8 -> println("31 days")
+                9 -> println("30 days")
+                10 -> println("31 days")
+                11 -> println("30 days")
+                12 -> println("31 days")
+                else -> println("not valid")
+            }
         }
     }
 }
@@ -73,7 +90,7 @@ fun exercise3(numberDni: Int): String {
     )
     resto = numberDni % 23
 
-    var response = "The letter of DNI is: " + letter.get(resto)
+    var response = "$numberDni - " + letter.get(resto)
 
     return response
 }
@@ -126,13 +143,7 @@ fun assignReadersToBooks() {
 // That prints the length of the string parameter.
 // If the string is null, print 0
 fun printStringLength(string: String?) {
-    val response = if (string != null) {
-        println("The length of string is: " + string.length)
-    } else {
-        println("The length of string is: 0")
-    }
-
-    return response
+    println("length = " + (string?.length ?: 0))
 }
 
 // TODO 8: Write a method concatenate() that concatenates 2 Strings
@@ -143,8 +154,5 @@ fun printStringLength(string: String?) {
 
 
 fun concatenate(strOne: String?, strTwo: String?):String {
-    val strOneNull = strOne ?: ""
-    val strTwoNull = strTwo ?: ""
-
-    return strOneNull + strTwoNull
+    return (strOne ?: "") + (strTwo ?: "")
 }
